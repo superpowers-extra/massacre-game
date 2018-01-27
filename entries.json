@@ -596,41 +596,34 @@
           "type": "script"
         },
         {
-          "id": "177",
-          "name": "Cinematics",
-          "type": null,
-          "children": [
-            {
-              "id": "190",
-              "name": "Guy",
-              "type": "sprite"
-            },
-            {
-              "id": "191",
-              "name": "Asteroid",
-              "type": "sprite"
-            },
-            {
-              "id": "192",
-              "name": "Trash 01",
-              "type": "sprite"
-            },
-            {
-              "id": "193",
-              "name": "Trash 02",
-              "type": "sprite"
-            },
-            {
-              "id": "194",
-              "name": "Background",
-              "type": "sprite"
-            },
-            {
-              "id": "195",
-              "name": "Cockpit",
-              "type": "sprite"
-            }
-          ]
+          "id": "190",
+          "name": "Guy",
+          "type": "sprite"
+        },
+        {
+          "id": "191",
+          "name": "Asteroid",
+          "type": "sprite"
+        },
+        {
+          "id": "192",
+          "name": "Trash 1",
+          "type": "sprite"
+        },
+        {
+          "id": "193",
+          "name": "Trash 2",
+          "type": "sprite"
+        },
+        {
+          "id": "194",
+          "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "195",
+          "name": "Cockpit",
+          "type": "sprite"
         }
       ]
     },
