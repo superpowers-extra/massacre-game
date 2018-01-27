@@ -1,0 +1,58 @@
+{
+  "formatVersion": 3,
+  "maps": [
+    "map"
+  ],
+  "filtering": "pixelated",
+  "wrapping": "clampToEdge",
+  "pixelsPerUnit": 8,
+  "framesPerSecond": 10,
+  "opacity": null,
+  "alphaTest": 0.1,
+  "frameOrder": "rows",
+  "grid": {
+    "width": 148,
+    "height": 124
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "animations": [
+    {
+      "id": "0",
+      "name": "Animation",
+      "startFrameIndex": 1,
+      "endFrameIndex": 6,
+      "speed": 1
+    },
+    {
+      "id": "3",
+      "name": "Normal",
+      "startFrameIndex": 1,
+      "endFrameIndex": 1,
+      "speed": 1
+    },
+    {
+      "id": "1",
+      "name": "Hovered",
+      "startFrameIndex": 0,
+      "endFrameIndex": 0,
+      "speed": 1
+    },
+    {
+      "id": "2",
+      "name": "Pressed",
+      "startFrameIndex": 2,
+      "endFrameIndex": 2,
+      "speed": 1
+    }
+  ],
+  "mapSlots": {
+    "map": "map",
+    "light": null,
+    "specular": null,
+    "alpha": null,
+    "normal": null
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "behaviors": {
+    "StartBehavior": {
+      "scriptId": "16",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "FightScreenBehavior": {
+      "scriptId": "23",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ButtonBehavior": {
+      "scriptId": "25",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean"
+        },
+        {
+          "name": "interactive",
+          "type": "boolean"
+        }
+      ]
+    },
+    "RosterScreenBehavior": {
+      "scriptId": "31",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "FXBehavior": {
+      "scriptId": "47",
+      "line": 10,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "LabScreenBehavior": {
+      "scriptId": "52",
+      "line": 4,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "stateTimer",
+          "type": "number"
+        },
+        {
+          "name": "bellMonsterIndex",
+          "type": "number"
+        },
+        {
+          "name": "secondaryBubbleMonsterIndex",
+          "type": "number"
+        },
+        {
+          "name": "transferBubblePosition",
+          "type": "Sup.Math.Vector2"
+        },
+        {
+          "name": "transferWaypointTargetIndex",
+          "type": "number"
+        }
+      ]
+    },
+    "MarketPopupBehavior": {
+      "scriptId": "77",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "isRolling",
+          "type": "boolean"
+        },
+        {
+          "name": "price",
+          "type": "number"
+        },
+        {
+          "name": "questionMarkCount",
+          "type": "number"
+        }
+      ]
+    },
+    "IdleMonsterBehavior": {
+      "scriptId": "86",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "animationTimer",
+          "type": "number"
+        }
+      ]
+    },
+    "FightMonsterBehavior": {
+      "scriptId": "21",
+      "line": 4,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector2"
+        }
+      ]
+    },
+    "PhonePopupBehavior": {
+      "scriptId": "100",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ExhibitionPopupBehavior": {
+      "scriptId": "104",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "StarshipBehavior": {
+      "scriptId": "137",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "timer",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        }
+      ]
+    },
+    "CompendiumScreenBehavior": {
+      "scriptId": "37",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "StatusBarBehavior": {
+      "scriptId": "171",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "IntroScreenBehavior": {
+      "scriptId": "187",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    }
+  }
+}

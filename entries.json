@@ -1,0 +1,916 @@
+{
+  "nextEntryId": 197,
+  "nodes": [
+    {
+      "id": "164",
+      "name": "TASKS",
+      "type": "script"
+    },
+    {
+      "id": "1",
+      "name": "Global",
+      "type": "script"
+    },
+    {
+      "id": "9",
+      "name": "Font",
+      "type": "font"
+    },
+    {
+      "id": "11",
+      "name": "Bold Font",
+      "type": "font"
+    },
+    {
+      "id": "133",
+      "name": "Button Font",
+      "type": "font"
+    },
+    {
+      "id": "24",
+      "name": "Basics",
+      "type": null,
+      "children": [
+        {
+          "id": "25",
+          "name": "Button Behavior",
+          "type": "script"
+        },
+        {
+          "id": "26",
+          "name": "Mouse",
+          "type": "script"
+        },
+        {
+          "id": "28",
+          "name": "Medium Button Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "156",
+          "name": "Large Button Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "84",
+          "name": "Negative Medium Button Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "68",
+          "name": "Popup Backdrop",
+          "type": "sprite"
+        },
+        {
+          "id": "56",
+          "name": "Popup Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "59",
+          "name": "Square Button Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "85",
+          "name": "Negative Square Button Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "179",
+          "name": "Monster Frame",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "name": "FXs",
+      "type": null,
+      "children": [
+        {
+          "id": "47",
+          "name": "Behavior",
+          "type": "script"
+        },
+        {
+          "id": "43",
+          "name": "Hit1",
+          "type": "sprite"
+        },
+        {
+          "id": "46",
+          "name": "Hit2",
+          "type": "sprite"
+        },
+        {
+          "id": "118",
+          "name": "Monster Disparition",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "170",
+      "name": "HUD",
+      "type": null,
+      "children": [
+        {
+          "id": "173",
+          "name": "Prefab",
+          "type": "scene"
+        },
+        {
+          "id": "171",
+          "name": "Status Bar Behavior",
+          "type": "script"
+        },
+        {
+          "id": "108",
+          "name": "Status Bar Cartridge",
+          "type": "sprite"
+        },
+        {
+          "id": "119",
+          "name": "Status Bar Tooltip",
+          "type": "sprite"
+        },
+        {
+          "id": "110",
+          "name": "Reputation Star",
+          "type": "sprite"
+        },
+        {
+          "id": "188",
+          "name": "Hint Cartridge",
+          "type": "sprite"
+        },
+        {
+          "id": "189",
+          "name": "Notification Icon",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Monsters",
+      "type": null,
+      "children": [
+        {
+          "id": "14",
+          "name": "Data",
+          "type": "script"
+        },
+        {
+          "id": "160",
+          "name": "Utils",
+          "type": "script"
+        },
+        {
+          "id": "86",
+          "name": "Idle Monster Behavior",
+          "type": "script"
+        },
+        {
+          "id": "62",
+          "name": "Craborg",
+          "type": null,
+          "children": [
+            {
+              "id": "63",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "64",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "66",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "17",
+          "name": "Panarix",
+          "type": null,
+          "children": [
+            {
+              "id": "13",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "67",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "69",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "39",
+          "name": "Vacuumator",
+          "type": null,
+          "children": [
+            {
+              "id": "40",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "72",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "73",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "48",
+          "name": "Rampire",
+          "type": null,
+          "children": [
+            {
+              "id": "49",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "74",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "75",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "79",
+          "name": "Psychiderm",
+          "type": null,
+          "children": [
+            {
+              "id": "80",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "81",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "83",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "87",
+          "name": "Salamasaurus",
+          "type": null,
+          "children": [
+            {
+              "id": "88",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "89",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "91",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "92",
+          "name": "Potham",
+          "type": null,
+          "children": [
+            {
+              "id": "93",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "94",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "95",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "154",
+          "name": "Leavyrekt",
+          "type": null,
+          "children": [
+            {
+              "id": "155",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "157",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "158",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "101",
+          "name": "Greenspirit",
+          "type": null,
+          "children": [
+            {
+              "id": "102",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "105",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "107",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "112",
+          "name": "Tapewormer",
+          "type": null,
+          "children": [
+            {
+              "id": "122",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "124",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "127",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "135",
+          "name": "Chichentuekill",
+          "type": null,
+          "children": [
+            {
+              "id": "136",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "138",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "139",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "166",
+          "name": "Snootyglooby",
+          "type": null,
+          "children": [
+            {
+              "id": "167",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "168",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "169",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "140",
+          "name": "Sneezie",
+          "type": null,
+          "children": [
+            {
+              "id": "141",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "142",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "143",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "161",
+          "name": "Slime",
+          "type": null,
+          "children": [
+            {
+              "id": "162",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "163",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "165",
+              "name": "Slime3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "180",
+          "name": "Leonard",
+          "type": null,
+          "children": [
+            {
+              "id": "181",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "182",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "183",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "148",
+      "name": "Traits",
+      "type": null,
+      "children": [
+        {
+          "id": "149",
+          "name": "Berserk",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "113",
+      "name": "Team Popup",
+      "type": null,
+      "children": [
+        {
+          "id": "159",
+          "name": "Utils",
+          "type": "script"
+        },
+        {
+          "id": "129",
+          "name": "Prefab",
+          "type": "scene"
+        },
+        {
+          "id": "184",
+          "name": "Monster Slot Prefab",
+          "type": "scene"
+        },
+        {
+          "id": "128",
+          "name": "Monster Info Prefab",
+          "type": "scene"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Start Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "0",
+          "name": "Scene",
+          "type": "scene"
+        },
+        {
+          "id": "16",
+          "name": "Behavior",
+          "type": "script"
+        },
+        {
+          "id": "137",
+          "name": "Starship Behavior",
+          "type": "script"
+        },
+        {
+          "id": "7",
+          "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "134",
+          "name": "Starship",
+          "type": "sprite"
+        },
+        {
+          "id": "178",
+          "name": "Logo",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "185",
+      "name": "Intro Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "186",
+          "name": "Scene",
+          "type": "scene"
+        },
+        {
+          "id": "187",
+          "name": "Behavior",
+          "type": "script"
+        },
+        {
+          "id": "177",
+          "name": "Cinematics",
+          "type": null,
+          "children": [
+            {
+              "id": "190",
+              "name": "Guy",
+              "type": "sprite"
+            },
+            {
+              "id": "191",
+              "name": "Asteroid",
+              "type": "sprite"
+            },
+            {
+              "id": "192",
+              "name": "Trash 01",
+              "type": "sprite"
+            },
+            {
+              "id": "193",
+              "name": "Trash 02",
+              "type": "sprite"
+            },
+            {
+              "id": "194",
+              "name": "Background",
+              "type": "sprite"
+            },
+            {
+              "id": "195",
+              "name": "Cockpit",
+              "type": "sprite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Roster Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "5",
+          "name": "Scene",
+          "type": "scene"
+        },
+        {
+          "id": "31",
+          "name": "Behavior",
+          "type": "script"
+        },
+        {
+          "id": "32",
+          "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "123",
+          "name": "Lab Door",
+          "type": "sprite"
+        },
+        {
+          "id": "126",
+          "name": "Pit Door",
+          "type": "sprite"
+        },
+        {
+          "id": "125",
+          "name": "Championship Door",
+          "type": "sprite"
+        },
+        {
+          "id": "121",
+          "name": "Compendium Door",
+          "type": "sprite"
+        },
+        {
+          "id": "45",
+          "name": "Telephone",
+          "type": "sprite"
+        },
+        {
+          "id": "97",
+          "name": "Phone Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "57",
+              "name": "Scene",
+              "type": "scene"
+            },
+            {
+              "id": "100",
+              "name": "Behavior",
+              "type": "script"
+            },
+            {
+              "id": "98",
+              "name": "Portrait",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "60",
+          "name": "Market Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "55",
+              "name": "Scene",
+              "type": "scene"
+            },
+            {
+              "id": "77",
+              "name": "Behavior",
+              "type": "script"
+            },
+            {
+              "id": "61",
+              "name": "Title",
+              "type": "sprite"
+            },
+            {
+              "id": "150",
+              "name": "Portrait",
+              "type": "sprite"
+            },
+            {
+              "id": "65",
+              "name": "Frame",
+              "type": "sprite"
+            },
+            {
+              "id": "76",
+              "name": "Question Mark",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "96",
+          "name": "Exhibition Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "103",
+              "name": "Scene",
+              "type": "scene"
+            },
+            {
+              "id": "104",
+              "name": "Behavior",
+              "type": "script"
+            },
+            {
+              "id": "106",
+              "name": "Title",
+              "type": "sprite"
+            },
+            {
+              "id": "152",
+              "name": "Portraits",
+              "type": null,
+              "children": [
+                {
+                  "id": "153",
+                  "name": "1",
+                  "type": "sprite"
+                },
+                {
+                  "id": "174",
+                  "name": "2",
+                  "type": "sprite"
+                },
+                {
+                  "id": "175",
+                  "name": "3",
+                  "type": "sprite"
+                },
+                {
+                  "id": "176",
+                  "name": "No Call",
+                  "type": "sprite"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Fight Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "10",
+          "name": "Scene",
+          "type": "scene"
+        },
+        {
+          "id": "23",
+          "name": "Behavior",
+          "type": "script"
+        },
+        {
+          "id": "21",
+          "name": "Monster Behavior",
+          "type": "script"
+        },
+        {
+          "id": "132",
+          "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "146",
+          "name": "Background 2 (1)",
+          "type": null,
+          "children": [
+            {
+              "id": "145",
+              "name": "Background 2",
+              "type": "sprite"
+            },
+            {
+              "id": "147",
+              "name": "Overlay",
+              "type": "sprite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "name": "Compendium Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "36",
+          "name": "Scene",
+          "type": "scene"
+        },
+        {
+          "id": "37",
+          "name": "Behavior",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "name": "Lab Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "51",
+          "name": "Scene",
+          "type": "scene"
+        },
+        {
+          "id": "52",
+          "name": "Behavior",
+          "type": "script"
+        },
+        {
+          "id": "53",
+          "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "196",
+          "name": "Icon",
+          "type": "sprite"
+        },
+        {
+          "id": "120",
+          "name": "Roster Door",
+          "type": "sprite"
+        },
+        {
+          "id": "130",
+          "name": "Plus Button",
+          "type": "sprite"
+        },
+        {
+          "id": "114",
+          "name": "Bell",
+          "type": "sprite"
+        },
+        {
+          "id": "131",
+          "name": "Secondary Bubble",
+          "type": "sprite"
+        },
+        {
+          "id": "115",
+          "name": "Fuse Button",
+          "type": "sprite"
+        },
+        {
+          "id": "117",
+          "name": "Tube",
+          "type": "sprite"
+        },
+        {
+          "id": "116",
+          "name": "Transfer Bubble",
+          "type": "sprite"
+        }
+      ]
+    }
+  ]
+}
