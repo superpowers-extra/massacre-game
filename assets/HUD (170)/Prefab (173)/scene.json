@@ -326,7 +326,7 @@
               "components": [],
               "position": {
                 "x": 25.5,
-                "y": 20,
+                "y": 20.5,
                 "z": 0.5
               },
               "orientation": {
@@ -347,7 +347,49 @@
             {
               "id": "36",
               "name": "Tooltip",
-              "children": [],
+              "children": [
+                {
+                  "id": "49",
+                  "name": "Text",
+                  "children": [],
+                  "components": [
+                    {
+                      "type": "TextRenderer",
+                      "config": {
+                        "formatVersion": 2,
+                        "fontAssetId": "9",
+                        "text": "Reputation",
+                        "alignment": "center",
+                        "verticalAlignment": "center",
+                        "size": null,
+                        "color": null,
+                        "overrideOpacity": false,
+                        "opacity": null
+                      },
+                      "id": "0"
+                    }
+                  ],
+                  "position": {
+                    "x": -6,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "orientation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  },
+                  "visible": true,
+                  "layer": 0,
+                  "prefab": null
+                }
+              ],
               "components": [
                 {
                   "type": "SpriteRenderer",
@@ -387,8 +429,8 @@
                 }
               ],
               "position": {
-                "x": 32,
-                "y": 15,
+                "x": 37.5,
+                "y": 16.5,
                 "z": 0
               },
               "orientation": {
@@ -415,12 +457,12 @@
                   "type": "TextRenderer",
                   "config": {
                     "formatVersion": 2,
-                    "fontAssetId": "9",
-                    "text": "$ 10000",
+                    "fontAssetId": "11",
+                    "text": "$ ???????",
                     "alignment": "right",
                     "verticalAlignment": "center",
                     "size": null,
-                    "color": null,
+                    "color": "f4e159",
                     "overrideOpacity": false,
                     "opacity": null
                   },
@@ -429,7 +471,7 @@
               ],
               "position": {
                 "x": 21,
-                "y": 20,
+                "y": 20.5,
                 "z": 0.5
               },
               "orientation": {
@@ -480,7 +522,7 @@
         },
         {
           "id": "43",
-          "name": "Popup Backdrop",
+          "name": "Popup",
           "children": [],
           "components": [
             {
@@ -500,6 +542,14 @@
                 "shaderAssetId": null
               },
               "id": "0"
+            },
+            {
+              "type": "Behavior",
+              "config": {
+                "behaviorName": "PopupBehavior",
+                "propertyValues": {}
+              },
+              "id": "1"
             }
           ],
           "position": {
@@ -523,115 +573,10 @@
           "prefab": null
         },
         {
-          "id": "45",
-          "name": "Hint Bar",
-          "children": [
-            {
-              "id": "46",
-              "name": "Icon",
-              "children": [],
-              "components": [
-                {
-                  "type": "SpriteRenderer",
-                  "config": {
-                    "formatVersion": 1,
-                    "spriteAssetId": "189",
-                    "animationId": null,
-                    "horizontalFlip": false,
-                    "verticalFlip": false,
-                    "castShadow": false,
-                    "receiveShadow": false,
-                    "color": "ffffff",
-                    "overrideOpacity": false,
-                    "opacity": null,
-                    "materialType": "basic",
-                    "shaderAssetId": null
-                  },
-                  "id": "0"
-                }
-              ],
-              "position": {
-                "x": -22.5,
-                "y": 0,
-                "z": 0
-              },
-              "orientation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 1
-              },
-              "scale": {
-                "x": 1,
-                "y": 1,
-                "z": 1
-              },
-              "visible": true,
-              "layer": 0,
-              "prefab": null
-            },
-            {
-              "id": "47",
-              "name": "Text",
-              "children": [],
-              "components": [
-                {
-                  "type": "TextRenderer",
-                  "config": {
-                    "formatVersion": 2,
-                    "fontAssetId": "9",
-                    "text": "HEY! WIN THE GAME TO WIN THE GAME! You're welcome.",
-                    "alignment": "center",
-                    "verticalAlignment": "center",
-                    "size": 32,
-                    "color": null,
-                    "overrideOpacity": false,
-                    "opacity": null
-                  },
-                  "id": "0"
-                }
-              ],
-              "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-              },
-              "orientation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 1
-              },
-              "scale": {
-                "x": 1,
-                "y": 1,
-                "z": 1
-              },
-              "visible": true,
-              "layer": 0,
-              "prefab": null
-            }
-          ],
-          "components": [
-            {
-              "type": "SpriteRenderer",
-              "config": {
-                "formatVersion": 1,
-                "spriteAssetId": "188",
-                "animationId": null,
-                "horizontalFlip": false,
-                "verticalFlip": false,
-                "castShadow": false,
-                "receiveShadow": false,
-                "color": "ffffff",
-                "overrideOpacity": false,
-                "opacity": null,
-                "materialType": "basic",
-                "shaderAssetId": null
-              },
-              "id": "0"
-            }
-          ],
+          "id": "48",
+          "name": "Text Bar",
+          "children": [],
+          "components": [],
           "position": {
             "x": 0,
             "y": -18,
@@ -648,9 +593,11 @@
             "y": 1,
             "z": 1
           },
-          "visible": false,
+          "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "210"
+          }
         }
       ],
       "components": [],

@@ -1,13 +1,22 @@
 enum MonsterStates {
-  Idle, Move, PrepareAttack, Attack, Dead, Victory
+  Idle, Move, Flee, PrepareAttack, Attack, Dead, Victory
  }
 
 class FightMonsterBehavior extends Sup.Behavior {
   
   static Height = 8;
   
-  static NextAttackDelayMin = 60;
-  static NextAttackDelayMax = 180;
+  static ArenaLimits = {
+    left: -24, right: 24, top: -5, bottom: -15
+  };
+  
+  static IdleDurationDelayMin = 60;
+  static IdleDurationDelayMax = 120;
+  
+  static BaseMoveSpeed = 0.3;
+  static FleeMoveSpeed = 0.4;
+  static MoveLoopDuration = 30;
+  static MoveDelayMax = 120;
   
   static PrepareAttackDuration = 30;
   static PrepareAttackLoopDuration = 3;
@@ -24,6 +33,7 @@ class FightMonsterBehavior extends Sup.Behavior {
   targets: FightMonsterBehavior[];
   
   position: Sup.Math.Vector2;
+  depth: number;
   private angle = 0;
   
   private currentTarget: FightMonsterBehavior;
@@ -31,37 +41,81 @@ class FightMonsterBehavior extends Sup.Behavior {
   private state : MonsterStates;
   private stateTimer: number;
   private stateAngle: number;
+  private nextActionTimer: number;
   
-  private nextAttackTimer: number;
+  private fleeTargetPosition = new Sup.Math.Vector2();
   private hasAttackHit: boolean;
-  
   private deadMovementDistance: number;
+  
+  private healthFill: Sup.Actor;
+  static HealthScale = 3.5;
   
   awake() {
     new Sup.SpriteRenderer(this.actor, `Monsters/${this.info.name}/Stage${this.info.stage}`);
     
-    this.position = this.actor.getPosition().toVector2();
+    const position = this.actor.getPosition(); 
+    this.position = position.toVector2();
+    this.depth = position.z;
+    
+    const shadow = new Sup.Actor("Shadow", this.actor);
+    shadow.setLocalZ(-0.5);
+    new Sup.SpriteRenderer(shadow, "Monsters/Shadow");
+    
+    const healthBar = new Sup.Actor("Health Bar", this.actor);
+    healthBar.setLocalY(8);
+    new Sup.SpriteRenderer(healthBar, "Fight Screen/Health Bar");
+    
+    this.healthFill = new Sup.Actor("Health Fill", healthBar);
+    new Sup.SpriteRenderer(this.healthFill, "Fight Screen/Health Fill");
+    this.healthFill.setLocalX(-1.75);
+    this.healthFill.setLocalZ(0.1);
+    this.refreshHealth();
   }
   
   start() {
     this.setIdleState();
   }
+  
+  refreshHealth() {
+    if (this.info.currentHealth <= 0) {
+      this.actor.getChild("Health Bar").setVisible(false);
+    } else {
+      this.healthFill.setLocalScale(this.info.currentHealth * FightMonsterBehavior.HealthScale / this.info.stats.health, 0.6, 1);
+    }
+  }
 
   update() {
+    // Z-order the monster
+    this.actor.setZ(this.depth - this.position.y * 0.001);
+    
+    if (this.isDead()) {
+      this.handleDeadState();
+      return;
+    }
+    
+    // No more target available, combat is finished but let last attack attack continue
+    this.updateTarget();
+    if (this.currentTarget == null && this.state !== MonsterStates.Attack) {
+      this.setVictoryState();
+    }
+    
     switch (this.state) {
       case MonsterStates.Idle: this.handleIdleState(); break;
+      case MonsterStates.Move: this.handleMoveState(); break;
+      case MonsterStates.Flee: this.handleFleeState(); break;
       case MonsterStates.PrepareAttack: this.handlePrepareAttackState(); break;
       case MonsterStates.Attack: this.handleAttackState(); break;
-      case MonsterStates.Dead: this.handleDeadState(); break;
       case MonsterStates.Victory: this.handleVictoryState(); break;
     }
   }
   
   hit(attacker: FightMonsterBehavior): boolean {
     const damage = Math.max(0, attacker.info.stats.attack - this.info.stats.defense);
-    if (damage <= 0 || this.state === MonsterStates.Dead) return false;
+    if (damage <= 0 || this.isDead()) return false;
     
-    this.info.currentHealth -= damage;
+    this.info.currentHealth = Math.max(this.info.currentHealth - damage, 0);
+    this.refreshHealth();
+
     const angleFromKiller = attacker.position.angleTo(this.position);
     
     if (this.info.currentHealth <= 0) this.setDeadState(angleFromKiller)
@@ -69,16 +123,45 @@ class FightMonsterBehavior extends Sup.Behavior {
     return true;
   }
   
+  isDead() { return this.state === MonsterStates.Dead; }
+  
   private updateTarget() {
     // Keep current target if still valid
-    if (this.currentTarget != null && this.state !== MonsterStates.Dead) return;
+    if (this.currentTarget != null && this.currentTarget.state !== MonsterStates.Dead) return;
     
+    // TODO: Try to find a smart target, closest/less health
     const aliveTargets: FightMonsterBehavior[] = [];
     for (const target of this.targets) {
-      if (this.state !== MonsterStates.Dead) aliveTargets.push(target);
+      if (target.state !== MonsterStates.Dead) aliveTargets.push(target);
     }
     
-    this.currentTarget = this.targets.length > 0 ? Sup.Math.Random.sample(aliveTargets) : null;
+    this.currentTarget = aliveTargets.length > 0 ? Sup.Math.Random.sample(aliveTargets) : null;
+  }
+  
+  private chooseNextAction() {
+    this.updateTarget();
+    if (this.currentTarget == null) {
+      this.setIdleState();
+      return;
+    }
+    
+    // If close enough, 2/3 chance to attack
+    if (this.position.distanceTo(this.currentTarget.position) < FightMonsterBehavior.AttackRange * 0.7) {
+      if (Sup.Math.Random.integer(0, 2) !== 0) {
+        this.setPrepareAttackState();
+        return;
+      }
+    }
+    
+    // Choose between Idle, Move and Flee
+    const roll = Sup.Math.Random.integer(0, 10);
+    if (roll < 2) this.setIdleState();
+    else if (roll < 8) this.setMoveState();
+    else this.setFleeState();
+  }
+  
+  private lookAtTarget() {
+    this.actor.spriteRenderer.setHorizontalFlip(this.position.x > this.currentTarget.position.x);
   }
   
   private idleAnimation() {
@@ -90,32 +173,100 @@ class FightMonsterBehavior extends Sup.Behavior {
     this.actor.setLocalScale(scaleX, scaleY, 1);
   }
   
+  private moveAnimation() {
+    this.stateTimer += 1;
+    
+    // TODO: Animation move state
+    /*const scaleModifier = Math.sin(this.stateTimer / IdleMonsterBehavior.IdleLoopDuration * Math.PI);
+    const scaleX = 1 - IdleMonsterBehavior.IdleScaleModifierX * scaleModifier;
+    const scaleY = 1 + IdleMonsterBehavior.IdleScaleModifierY * scaleModifier;
+    this.actor.setLocalScale(scaleX, scaleY, 1);*/
+  }
+  
+  private move(moveOffset: Sup.Math.Vector2) {
+    this.position.x = Sup.Math.clamp(this.position.x + moveOffset.x, FightMonsterBehavior.ArenaLimits.left, FightMonsterBehavior.ArenaLimits.right);
+    this.position.y = Sup.Math.clamp(this.position.y + moveOffset.y, FightMonsterBehavior.ArenaLimits.bottom, FightMonsterBehavior.ArenaLimits.top);
+    this.actor.setPosition(this.position);
+  }
+  
   // States handling
   private setIdleState() {
-    this.stateTimer = Sup.Math.Random.integer(0, IdleMonsterBehavior.IdleLoopDuration);
+    this.state = MonsterStates.Idle;
     this.actor.spriteRenderer.setAnimation("Idle");
-    
-    this.updateTarget();
-    
-    // No more target available, combat is finished
-    if (this.currentTarget == null) {
-      this.setVictoryState();
-    } else {
-      this.state = MonsterStates.Idle;
-      this.nextAttackTimer = Sup.Math.Random.integer(FightMonsterBehavior.NextAttackDelayMin, FightMonsterBehavior.NextAttackDelayMax);
-    }
+    this.stateTimer = Sup.Math.Random.integer(0, IdleMonsterBehavior.IdleLoopDuration);
+      
+    this.nextActionTimer = Sup.Math.Random.integer(FightMonsterBehavior.IdleDurationDelayMin, FightMonsterBehavior.IdleDurationDelayMax);
   }
   
   private handleIdleState() {
-    this.actor.spriteRenderer.setHorizontalFlip(this.position.x > this.currentTarget.position.x);
-    
     this.idleAnimation();
+    this.lookAtTarget();
     
-    this.nextAttackTimer -= 1;
-    if (this.nextAttackTimer < 0) {
+    this.nextActionTimer -= 1;
+    if (this.nextActionTimer < 0) {
       this.actor.setLocalScale(1);
-      this.setPrepareAttackState();
+      this.chooseNextAction();
     }
+  }
+  
+  private setMoveState() {
+    this.state = MonsterStates.Move;
+    this.actor.spriteRenderer.setAnimation("Idle");
+    
+    this.stateAngle = this.currentTarget.position.angleTo(this.position) + Sup.Math.Random.float(-Math.PI, Math.PI);
+    this.nextActionTimer = FightMonsterBehavior.MoveDelayMax;
+  }
+  
+  private handleMoveState() {
+    // Try to attack if close enough
+    if (this.position.distanceTo(this.currentTarget.position) < FightMonsterBehavior.AttackRange * 0.7 && this.nextActionTimer < FightMonsterBehavior.MoveDelayMax / 3) {
+      this.setPrepareAttackState();
+      return;
+    }
+    
+    // If you walk for too long, try another action
+    this.nextActionTimer -= 1;
+    if (this.nextActionTimer < 0) {
+      this.chooseNextAction();
+      return;
+    }
+    
+    this.moveAnimation();
+    
+    const targetPosition = this.currentTarget.position.clone();
+    targetPosition.x += Math.cos(this.stateAngle) * FightMonsterBehavior.AttackRange * 0.7;
+    targetPosition.y += Math.sin(this.stateAngle) * FightMonsterBehavior.AttackRange * 0.7;
+    
+    const moveSpeed = FightMonsterBehavior.BaseMoveSpeed;
+    const moveOffset = targetPosition.subtract(this.position);
+
+    if (moveOffset.length() < moveSpeed) this.chooseNextAction();
+    else moveOffset.normalize().multiplyScalar(moveSpeed);
+    
+    this.move(moveOffset);
+    
+    this.lookAtTarget();
+  }
+  
+  private setFleeState() {
+    this.state = MonsterStates.Flee;
+    this.actor.spriteRenderer.setAnimation("Idle");
+    
+    this.fleeTargetPosition.x = Sup.Math.Random.float(FightMonsterBehavior.ArenaLimits.left, FightMonsterBehavior.ArenaLimits.right);
+    this.fleeTargetPosition.y = Sup.Math.Random.float(FightMonsterBehavior.ArenaLimits.bottom, FightMonsterBehavior.ArenaLimits.top);
+  }
+  
+  private handleFleeState() {
+    this.moveAnimation();
+    
+    const moveSpeed = FightMonsterBehavior.FleeMoveSpeed;
+    const moveOffset = this.fleeTargetPosition.clone().subtract(this.position);
+
+    if (moveOffset.length() < moveSpeed) this.chooseNextAction();
+    else moveOffset.normalize().multiplyScalar(moveSpeed);
+    this.move(moveOffset);
+    
+    this.lookAtTarget();
   }
   
   private setPrepareAttackState() {
@@ -126,18 +277,25 @@ class FightMonsterBehavior extends Sup.Behavior {
   }
   
   private handlePrepareAttackState() {
-    this.actor.spriteRenderer.setHorizontalFlip(this.position.x > this.currentTarget.position.x);
-    
     const animationOffsetX = 0.2 * Math.sin(this.stateTimer / FightMonsterBehavior.PrepareAttackLoopDuration * Math.PI);
     this.actor.setX(this.position.x + animationOffsetX);
+    
+    this.lookAtTarget();
     
     this.stateTimer -= 1;
     if (this.stateTimer <= 0) this.setAttackState();
   }
   
   private setAttackState() {
+    this.updateTarget();
+    if (this.currentTarget == null) {
+      this.setIdleState();
+      return;
+    }
+    
     this.state = MonsterStates.Attack;
     this.actor.spriteRenderer.setAnimation("Attack");
+    AudioManager.playSound("Punch");
     
     this.stateTimer = FightMonsterBehavior.AttackDuration;
     this.stateAngle = this.position.angleTo(this.currentTarget.position);
@@ -164,7 +322,7 @@ class FightMonsterBehavior extends Sup.Behavior {
       }
     }
     
-    if (this.stateTimer <= 0) this.setIdleState();
+    if (this.stateTimer <= 0) this.chooseNextAction();
   }
   
   private setDeadState(angleFromKiller: number){
@@ -181,11 +339,8 @@ class FightMonsterBehavior extends Sup.Behavior {
     
     this.stateTimer -= 1;
     const deadProgress = this.stateTimer / FightMonsterBehavior.DeadMovementDuration;
-    
     const deadMovementSpeed = deadProgress * FightMonsterBehavior.DeadMovementSpeedMax;
-    this.position.x += deadMovementSpeed * Math.cos(this.stateAngle);
-    this.position.y += deadMovementSpeed * Math.sin(this.stateAngle);
-    this.actor.setPosition(this.position.x, this.position.y);
+    this.move(new Sup.Math.Vector2(deadMovementSpeed * Math.cos(this.stateAngle), deadMovementSpeed * Math.sin(this.stateAngle)));
     
     const deadAngularSpeedSign = this.stateAngle > Math.PI / 2 || this.stateAngle < -Math.PI / 2 ? 1 : -1;
     const deadAngularSpeed = deadProgress * FightMonsterBehavior.DeadAngularSpeedMax * deadAngularSpeedSign;

@@ -20,7 +20,7 @@ class MarketPopupBehavior extends Sup.Behavior {
     
     const closeButton = Sup.getActor("Close Button").getBehavior(ButtonBehavior);
     closeButton.onClick = () => {
-      this.rosterScreen.closePopup();
+      this.rosterScreen.popup.close(this.rosterScreen.allButtons);
     };
     
     this.priceTextRndr = Sup.getActor("Amount").textRenderer;
@@ -38,9 +38,8 @@ class MarketPopupBehavior extends Sup.Behavior {
         Global.roster.push(this.monsterInfos[i]);
         Global.saveGame();
         
-        this.rosterScreen.closePopup();
-        
-        // TODO: Spawn that monster
+        this.rosterScreen.popup.close(this.rosterScreen.allButtons);
+        this.rosterScreen.spawnMonster(Global.roster.length - 1, true);
       };
     }
     
@@ -53,7 +52,6 @@ class MarketPopupBehavior extends Sup.Behavior {
       
       Global.money -= this.price;
       Global.refreshStatusBar();
-      Global.saveGame();
       
       closeButton.setDisabled(true);
       closeButton.actor.setVisible(false);
@@ -63,7 +61,7 @@ class MarketPopupBehavior extends Sup.Behavior {
       for (const frame of this.frames) {
         const actor = new Sup.Actor("Question Mark", frame);
         this.questionMarks.push(new Sup.SpriteRenderer(actor, "Roster Screen/Market Popup/Question Mark"));
-        actor.spriteRenderer.setAnimation("Animation");
+        actor.spriteRenderer.setAnimation("Animation").setAnimationFrameTime(Sup.Math.Random.float(0, 1));
       }
       
       Sup.setTimeout(2000, this.slowDownNextQuestionMark);
@@ -112,7 +110,7 @@ class MarketPopupBehavior extends Sup.Behavior {
   }
   
   revealMonster() {
-    const monsterInfo = generateRandomizedMonsterInfo(this.price);
+    const monsterInfo = generateRandomizedMonsterInfoFromPrice(this.price);
     const frame = this.frames[this.monsterInfos.length];
     this.monsterInfos.push(monsterInfo);
     

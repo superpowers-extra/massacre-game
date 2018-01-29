@@ -1,6 +1,6 @@
 class CompendiumScreenBehavior extends Sup.Behavior {
   awake() {
-    
+    AudioManager.ensurePlayTrack("Menu");
   }
 
   update() {

@@ -99,15 +99,15 @@
       "prefab": null
     },
     {
-      "id": "7",
-      "name": "Starship",
+      "id": "8",
+      "name": "Logo",
       "children": [],
       "components": [
         {
           "type": "SpriteRenderer",
           "config": {
             "formatVersion": 1,
-            "spriteAssetId": "134",
+            "spriteAssetId": "178",
             "animationId": null,
             "horizontalFlip": false,
             "verticalFlip": false,
@@ -120,20 +120,12 @@
             "shaderAssetId": null
           },
           "id": "0"
-        },
-        {
-          "type": "Behavior",
-          "config": {
-            "behaviorName": "StarshipBehavior",
-            "propertyValues": {}
-          },
-          "id": "1"
         }
       ],
       "position": {
-        "x": 15,
-        "y": 1,
-        "z": 1
+        "x": -8.573235511779785,
+        "y": 15.399628639221191,
+        "z": 0
       },
       "orientation": {
         "x": 0,
@@ -164,7 +156,7 @@
               "config": {
                 "formatVersion": 2,
                 "fontAssetId": "133",
-                "text": "NEW GAME",
+                "text": "New Game",
                 "alignment": "center",
                 "verticalAlignment": "center",
                 "size": null,
@@ -204,11 +196,29 @@
             "propertyValues": {}
           },
           "id": "1"
+        },
+        {
+          "type": "SpriteRenderer",
+          "config": {
+            "formatVersion": 1,
+            "spriteAssetId": "156",
+            "animationId": null,
+            "horizontalFlip": false,
+            "verticalFlip": false,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "ffffff",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "2"
         }
       ],
       "position": {
         "x": -23,
-        "y": 5,
+        "y": 1,
         "z": 1
       },
       "orientation": {
@@ -227,11 +237,11 @@
       "prefab": null
     },
     {
-      "id": "5",
+      "id": "9",
       "name": "Continue Button",
       "children": [
         {
-          "id": "6",
+          "id": "10",
           "name": "Text",
           "children": [],
           "components": [
@@ -240,7 +250,7 @@
               "config": {
                 "formatVersion": 2,
                 "fontAssetId": "133",
-                "text": "CONTINUE",
+                "text": "Continue",
                 "alignment": "center",
                 "verticalAlignment": "center",
                 "size": null,
@@ -285,11 +295,29 @@
             }
           },
           "id": "0"
+        },
+        {
+          "type": "SpriteRenderer",
+          "config": {
+            "formatVersion": 1,
+            "spriteAssetId": "156",
+            "animationId": null,
+            "horizontalFlip": false,
+            "verticalFlip": false,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "ffffff",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "1"
         }
       ],
       "position": {
         "x": -23,
-        "y": -1,
+        "y": -4,
         "z": 1
       },
       "orientation": {
@@ -308,15 +336,15 @@
       "prefab": null
     },
     {
-      "id": "8",
-      "name": "Logo",
+      "id": "7",
+      "name": "Starship",
       "children": [],
       "components": [
         {
           "type": "SpriteRenderer",
           "config": {
             "formatVersion": 1,
-            "spriteAssetId": "178",
+            "spriteAssetId": "134",
             "animationId": null,
             "horizontalFlip": false,
             "verticalFlip": false,
@@ -329,12 +357,102 @@
             "shaderAssetId": null
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "StarshipBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
         }
       ],
       "position": {
-        "x": -21,
-        "y": 13,
-        "z": 0
+        "x": 13,
+        "y": -5,
+        "z": 1
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "11",
+      "name": "Credits",
+      "children": [],
+      "components": [
+        {
+          "type": "TextRenderer",
+          "config": {
+            "formatVersion": 2,
+            "fontAssetId": "9",
+            "text": "A game made in ~48h using Superpowers by Nicolas Gauthier, Pierre Frick, Thomas Frick,\nYannis Naamane, Timothée Lestradet, Eléa Héberlé, Bruno de Chazelles, Victor Nardin, Elisée Maurer",
+            "alignment": "left",
+            "verticalAlignment": "bottom",
+            "size": 32,
+            "color": null,
+            "overrideOpacity": true,
+            "opacity": 0.5
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": -39,
+        "y": -22,
+        "z": 3
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "12",
+      "name": "Music Credits",
+      "children": [],
+      "components": [
+        {
+          "type": "TextRenderer",
+          "config": {
+            "formatVersion": 2,
+            "fontAssetId": "9",
+            "text": "Music written by\nRobin Dussart and Dimitri Guindet",
+            "alignment": "right",
+            "verticalAlignment": "bottom",
+            "size": 32,
+            "color": null,
+            "overrideOpacity": true,
+            "opacity": 0.5
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": 39,
+        "y": -22,
+        "z": 3
       },
       "orientation": {
         "x": 0,

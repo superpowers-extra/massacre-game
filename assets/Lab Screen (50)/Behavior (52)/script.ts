@@ -7,6 +7,9 @@ class LabScreenBehavior extends Sup.Behavior {
   static TubeAnimationDuraton = 40;
   static TransferBubbleSpeed = 0.35;
   
+  popup: PopupBehavior;
+  textBar: TextBarBehavior;
+  
   state = FusionState.None;
   stateTimer: number;
   
@@ -23,36 +26,80 @@ class LabScreenBehavior extends Sup.Behavior {
   transferWaypoints: Sup.Math.Vector2[];
   transferWaypointTargetIndex: number;
   
-  popupBackdrop: Sup.Actor;
+  allButtons: ButtonBehavior[] = [];
   
   awake() {
+    AudioManager.ensurePlayTrack("Ambient");
+    
+    this.popup = Sup.getActor("Popup").getBehavior(PopupBehavior);
+    this.textBar = Sup.getActor("Text Bar").getBehavior(TextBarBehavior);
+    
     const rosterButton = Sup.getActor("Roster Button").getBehavior(ButtonBehavior);
     rosterButton.onClick = () => { Sup.loadScene("Roster Screen/Scene"); };
+    this.allButtons.push(rosterButton);
     
     this.fuseButton = Sup.getActor("Fuse Button").getBehavior(ButtonBehavior);
     this.fuseButton.setDisabled(true);
-    this.fuseButton.onClick = () => { this.initiateFusion(); };
+    this.fuseButton.onClick = () => {
+      const popup = this.popup.open("Lab Screen/Fuse Popup", this.allButtons);
+      
+      const mainMonsterInfo = Global.roster[this.bellMonsterIndex];
+      const mainMonsterInfoPopup = popup.getChild("Main Monster Info");
+      displayMonsterInfo(mainMonsterInfoPopup, mainMonsterInfo);
+      
+      const secondaryMonsterInfo = Global.roster[this.secondaryBubbleMonsterIndex];
+      const secondaryMonsterInfoPopup = popup.getChild("Secondary Monster Info");
+      displayMonsterInfo(secondaryMonsterInfoPopup, secondaryMonsterInfo);
+      
+      const dynamicTextRndr = popup.getChild("Dynamic Text").textRenderer;
+      dynamicTextRndr.setText(mainMonsterInfo.level === MonsterMaxLevelByStage ?
+        `The creature will evolve to the next stage!` :
+        `The creature will absorbe 1-${secondaryMonsterInfo.level} levels!`);
+      
+      const closeButton = popup.getChild("Close Button").getBehavior(ButtonBehavior);
+      closeButton.onClick = () => {
+        popup.destroy();
+        this.popup.close(this.allButtons);
+      };
+      
+      const validateFuseButton = popup.getChild("Validate Fuse Button").getBehavior(ButtonBehavior);
+      validateFuseButton.onClick = () => {
+        this.initiateFusion();
+        
+        popup.destroy();
+        this.popup.close(this.allButtons);
+      };
+    };
+    this.allButtons.push(this.fuseButton);
     
     this.bellRndr = Sup.getActor("Bell").spriteRenderer;
     this.bellButton = Sup.getActor("Bell").getBehavior(ButtonBehavior);
     this.bellButton.onClick = () => {
       this.openMonsterPopup(null, (monster, rosterIndex) => {
         this.bellMonsterIndex = rosterIndex;
-        this.bellRndr.actor.getChild("Monster").spriteRenderer.setSprite(`Monsters/${monster.name}/Stage${monster.stage}`);
+        this.bellRndr.actor.getChild("Monster").spriteRenderer.setSprite(getMonsterSprite(monster));
+        
+        this.secondaryBubbleMonsterIndex = null;
+        Sup.getActor("Secondary Bubble Monster").spriteRenderer.setSprite(null);
         this.secondaryBubbleButton.actor.setVisible(true);
+        
+        this.fuseButton.setDisabled(true);
       });
     };
+    this.allButtons.push(this.bellButton);
     
     this.secondaryBubbleButton = Sup.getActor("Secondary Bubble").getBehavior(ButtonBehavior);
     this.secondaryBubbleButton.actor.setVisible(false);
     this.secondaryBubbleButton.onClick = () => {
       this.openMonsterPopup(this.bellMonsterIndex, (monster, rosterIndex) => {
         this.secondaryBubbleMonsterIndex = rosterIndex;
-        Sup.getActor("Secondary Bubble Monster").spriteRenderer.setSprite(`Monsters/${monster.name}/Stage${monster.stage}`);
+        Sup.getActor("Secondary Bubble Monster").spriteRenderer.setSprite(getMonsterSprite(monster));
         this.secondaryBubbleButton.actor.setVisible(false);
+        
         this.fuseButton.setDisabled(false);
       });
     };
+    this.allButtons.push(this.secondaryBubbleButton);
     
     this.tubeRndr = Sup.getActor("Tube").spriteRenderer;
     this.transferBubble = Sup.getActor("Transfer Bubble");
@@ -61,8 +108,6 @@ class LabScreenBehavior extends Sup.Behavior {
     for (const waypointActor of Sup.getActor("Transfer Bubble Waypoints").getChildren()) {
       this.transferWaypoints.push(waypointActor.getPosition().toVector2());
     }
-    
-    this.popupBackdrop = Sup.getActor("Popup Backdrop");
   }
 
   update() {
@@ -77,14 +122,12 @@ class LabScreenBehavior extends Sup.Behavior {
   }
   
   private openMonsterPopup(alreadySelectedMonsterIndex: number, onSelectMonster: (monster: MonsterInfo, rosterIndex: number) => void) {
-    this.popupBackdrop.setVisible(true);
-    const popup = Sup.appendScene("Team Popup/Prefab")[0];
-    popup.setLocalZ(StatusBarBehavior.PopupZ);
+    const popup = this.popup.open("Lab Screen/Monster Popup", this.allButtons);
 
     const closeButton = popup.getChild("Close Button").getBehavior(ButtonBehavior);
     closeButton.onClick = () => {
       popup.destroy();
-      this.popupBackdrop.setVisible(false);
+      this.popup.close(this.allButtons);
     };
 
     const monsterInfo = popup.getChild("Monster Info");
@@ -96,7 +139,7 @@ class LabScreenBehavior extends Sup.Behavior {
 
       if (Global.roster.length - 1 >= i) {
         const rosterEntry = Global.roster[i];
-        slotButton.actor.getChild("Monster").spriteRenderer.setSprite(`Monsters/${rosterEntry.name}/Stage${rosterEntry.stage}`);
+        slotButton.actor.getChild("Monster").spriteRenderer.setSprite(getMonsterSprite(rosterEntry));
 
         if (i == alreadySelectedMonsterIndex) {
           slotButton.setInteractive(false);
@@ -116,8 +159,7 @@ class LabScreenBehavior extends Sup.Behavior {
         slotButton.onClick = () => {
           onSelectMonster(rosterEntry, i);
 
-          popup.destroy();
-          this.popupBackdrop.setVisible(false);
+          this.popup.close(this.allButtons);
         }
 
       } else {
@@ -202,17 +244,32 @@ class LabScreenBehavior extends Sup.Behavior {
   
   private handleBellState() {
     if (!this.bellRndr.isAnimationPlaying()) {
-      this.bellRndr.setAnimation(null);
+      this.bellRndr.setAnimation("Normal");
       this.finishFusion();
+      AudioManager.playSound("Fusion");
     }
   }
   
   private finishFusion() {
     this.state = FusionState.None;
-    // TODO: Actually increase stats of the initial monster and add some feedback?
     
-    this.secondaryBubbleButton.actor.setVisible(true);
+    // Increase stats of main monster
+    const mainMonsterInfo = Global.roster[this.bellMonsterIndex];
+    const secondaryMonsterInfo = Global.roster[this.secondaryBubbleMonsterIndex];
+    increaseMonsterStats(mainMonsterInfo, secondaryMonsterInfo);
+    
+    // Remove secondary monster from the roster
+    Global.roster.splice(this.secondaryBubbleMonsterIndex, 1);
+
+    Global.saveGame();
+    
     this.bellButton.setInteractive(true);
+    this.bellMonsterIndex = Global.roster.indexOf(mainMonsterInfo);
+    this.bellRndr.actor.getChild("Monster").spriteRenderer.setSprite(getMonsterSprite(mainMonsterInfo));
+    
+    this.secondaryBubbleMonsterIndex = null;
+    Sup.getActor("Secondary Bubble Monster").spriteRenderer.setSprite(null);
+    this.secondaryBubbleButton.actor.setVisible(true);
   }
 }
 Sup.registerBehavior(LabScreenBehavior);

@@ -133,7 +133,7 @@
         },
         {
           "id": "21",
-          "name": "Flavor Text",
+          "name": "Offer Text",
           "children": [],
           "components": [
             {
@@ -141,9 +141,91 @@
               "config": {
                 "formatVersion": 2,
                 "fontAssetId": "9",
-                "text": "TODO...",
+                "text": "Text...",
                 "alignment": "left",
                 "verticalAlignment": "top",
+                "size": null,
+                "color": "00de6e",
+                "overrideOpacity": false,
+                "opacity": null
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": -29,
+            "y": 14,
+            "z": 1
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        },
+        {
+          "id": "24",
+          "name": "Reward Label",
+          "children": [],
+          "components": [
+            {
+              "type": "TextRenderer",
+              "config": {
+                "formatVersion": 2,
+                "fontAssetId": "9",
+                "text": "Reward for participating:",
+                "alignment": "left",
+                "verticalAlignment": "center",
+                "size": 48,
+                "color": "aaaaaa",
+                "overrideOpacity": false,
+                "opacity": null
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": -29,
+            "y": -10.25,
+            "z": 1
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        },
+        {
+          "id": "25",
+          "name": "Reward",
+          "children": [],
+          "components": [
+            {
+              "type": "TextRenderer",
+              "config": {
+                "formatVersion": 2,
+                "fontAssetId": "9",
+                "text": "$ 1234, 5 ⋆",
+                "alignment": "left",
+                "verticalAlignment": "center",
                 "size": null,
                 "color": null,
                 "overrideOpacity": false,
@@ -154,7 +236,7 @@
           ],
           "position": {
             "x": -29,
-            "y": 14,
+            "y": -12.5,
             "z": 1
           },
           "orientation": {
@@ -247,7 +329,7 @@
             }
           ],
           "position": {
-            "x": 10,
+            "x": 23,
             "y": -12,
             "z": 1
           },
@@ -341,7 +423,7 @@
             }
           ],
           "position": {
-            "x": -10,
+            "x": 9,
             "y": -12,
             "z": 1
           },

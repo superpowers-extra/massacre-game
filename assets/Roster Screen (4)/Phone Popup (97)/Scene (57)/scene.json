@@ -283,7 +283,7 @@
                 "alignment": "center",
                 "verticalAlignment": "center",
                 "size": 48,
-                "color": null,
+                "color": "00de6e",
                 "overrideOpacity": false,
                 "opacity": null
               },
@@ -406,7 +406,7 @@
         },
         {
           "id": "13",
-          "name": "Bobby Portrait",
+          "name": "Call Portrait",
           "children": [],
           "components": [
             {
@@ -462,7 +462,7 @@
                 "alignment": "center",
                 "verticalAlignment": "center",
                 "size": 48,
-                "color": null,
+                "color": "00de6e",
                 "overrideOpacity": false,
                 "opacity": null
               },

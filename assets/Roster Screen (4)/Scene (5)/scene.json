@@ -85,13 +85,13 @@
       "name": "Roster Spots",
       "children": [
         {
-          "id": "3",
+          "id": "43",
           "name": "1",
           "children": [],
           "components": [],
           "position": {
-            "x": 5.003940582275391,
-            "y": 3.4153356552124023,
+            "x": 6.535,
+            "y": 0.459,
             "z": 0
           },
           "orientation": {
@@ -107,16 +107,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "6",
+          "id": "44",
           "name": "2",
           "children": [],
           "components": [],
           "position": {
-            "x": 8.261459350585938,
-            "y": -2.03708553314209,
+            "x": 3.510104179382324,
+            "y": -7.5665364265441895,
             "z": 0
           },
           "orientation": {
@@ -132,16 +134,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "4",
+          "id": "45",
           "name": "3",
           "children": [],
           "components": [],
           "position": {
-            "x": -17.004898071289062,
-            "y": 3.631190538406372,
+            "x": -17.85,
+            "y": 3.051,
             "z": 0
           },
           "orientation": {
@@ -157,16 +161,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "5",
+          "id": "46",
           "name": "4",
           "children": [],
           "components": [],
           "position": {
-            "x": -17.796466827392578,
-            "y": -9.482365608215332,
+            "x": 19.618432998657227,
+            "y": -4.5993123054504395,
             "z": 0
           },
           "orientation": {
@@ -182,16 +188,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "7",
+          "id": "47",
           "name": "5",
           "children": [],
           "components": [],
           "position": {
-            "x": -3.9790561199188232,
-            "y": -9.90617561340332,
+            "x": -7.119552135467529,
+            "y": -11.502985000610352,
             "z": 0
           },
           "orientation": {
@@ -207,16 +215,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "8",
+          "id": "48",
           "name": "6",
           "children": [],
           "components": [],
           "position": {
-            "x": -19.866365432739258,
-            "y": -15.677878379821777,
+            "x": -20.949,
+            "y": -12.722,
             "z": 0
           },
           "orientation": {
@@ -232,16 +242,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "9",
+          "id": "49",
           "name": "7",
           "children": [],
           "components": [],
           "position": {
-            "x": -11.376092910766602,
-            "y": -4.5985918045043945,
+            "x": -12.273656845092773,
+            "y": -3.9779844284057617,
             "z": 0
           },
           "orientation": {
@@ -257,16 +269,18 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         },
         {
-          "id": "10",
+          "id": "50",
           "name": "8",
           "children": [],
           "components": [],
           "position": {
-            "x": 17.312528610229492,
-            "y": -4.236208438873291,
+            "x": 14.804582595825195,
+            "y": -12.404953956604004,
             "z": 0
           },
           "orientation": {
@@ -282,32 +296,9 @@
           },
           "visible": true,
           "layer": 0,
-          "prefab": null
-        },
-        {
-          "id": "11",
-          "name": "9",
-          "children": [],
-          "components": [],
-          "position": {
-            "x": 6.737061023712158,
-            "y": -6.3245697021484375,
-            "z": 0
-          },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "visible": true,
-          "layer": 0,
-          "prefab": null
+          "prefab": {
+            "sceneAssetId": "312"
+          }
         }
       ],
       "components": [],
@@ -385,7 +376,12 @@
           "type": "Behavior",
           "config": {
             "behaviorName": "ButtonBehavior",
-            "propertyValues": {}
+            "propertyValues": {
+              "disabled": {
+                "type": "boolean",
+                "value": true
+              }
+            }
           },
           "id": "0"
         },
@@ -394,7 +390,7 @@
           "config": {
             "formatVersion": 1,
             "spriteAssetId": "121",
-            "animationId": null,
+            "animationId": "",
             "horizontalFlip": false,
             "verticalFlip": false,
             "castShadow": false,
@@ -430,7 +426,7 @@
     },
     {
       "id": "18",
-      "name": "Championship Button",
+      "name": "Cup Button",
       "children": [
         {
           "id": "39",
@@ -797,8 +793,8 @@
         }
       ],
       "position": {
-        "x": -23.478527069091797,
-        "y": 14.089570045471191,
+        "x": -23.4,
+        "y": 14,
         "z": 1
       },
       "orientation": {

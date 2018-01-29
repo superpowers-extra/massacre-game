@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 197,
+  "nextEntryId": 380,
   "nodes": [
     {
       "id": "164",
@@ -9,6 +9,11 @@
     {
       "id": "1",
       "name": "Global",
+      "type": "script"
+    },
+    {
+      "id": "364",
+      "name": "Audio Manager",
       "type": "script"
     },
     {
@@ -57,11 +62,6 @@
           "type": "sprite"
         },
         {
-          "id": "68",
-          "name": "Popup Backdrop",
-          "type": "sprite"
-        },
-        {
           "id": "56",
           "name": "Popup Frame",
           "type": "sprite"
@@ -77,8 +77,8 @@
           "type": "sprite"
         },
         {
-          "id": "179",
-          "name": "Monster Frame",
+          "id": "199",
+          "name": "Flat Square",
           "type": "sprite"
         }
       ]
@@ -121,6 +121,16 @@
           "type": "scene"
         },
         {
+          "id": "241",
+          "name": "Popup Behavior",
+          "type": "script"
+        },
+        {
+          "id": "68",
+          "name": "Popup Backdrop",
+          "type": "sprite"
+        },
+        {
           "id": "171",
           "name": "Status Bar Behavior",
           "type": "script"
@@ -141,8 +151,18 @@
           "type": "sprite"
         },
         {
+          "id": "210",
+          "name": "Text Bar Prefab",
+          "type": "scene"
+        },
+        {
+          "id": "214",
+          "name": "Text Bar Behavior",
+          "type": "script"
+        },
+        {
           "id": "188",
-          "name": "Hint Cartridge",
+          "name": "Text Cartridge",
           "type": "sprite"
         },
         {
@@ -173,6 +193,187 @@
           "type": "script"
         },
         {
+          "id": "308",
+          "name": "Shadow",
+          "type": "sprite"
+        },
+        {
+          "id": "330",
+          "name": "Repulshell",
+          "type": null,
+          "children": [
+            {
+              "id": "331",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "332",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "333",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "336",
+          "name": "Fred",
+          "type": null,
+          "children": [
+            {
+              "id": "337",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "338",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "339",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "262",
+          "name": "Gladiatoad",
+          "type": null,
+          "children": [
+            {
+              "id": "263",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "264",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "265",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "317",
+          "name": "Magnus",
+          "type": null,
+          "children": [
+            {
+              "id": "318",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "319",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "320",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "313",
+          "name": "Bursula",
+          "type": null,
+          "children": [
+            {
+              "id": "314",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "315",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "316",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "326",
+          "name": "Worm War III",
+          "type": null,
+          "children": [
+            {
+              "id": "327",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "328",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "329",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "275",
+          "name": "Leechleaf",
+          "type": null,
+          "children": [
+            {
+              "id": "276",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "277",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "278",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "244",
+          "name": "Brainax",
+          "type": null,
+          "children": [
+            {
+              "id": "256",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "257",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "258",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
           "id": "62",
           "name": "Craborg",
           "type": null,
@@ -195,6 +396,28 @@
           ]
         },
         {
+          "id": "200",
+          "name": "Dowie",
+          "type": null,
+          "children": [
+            {
+              "id": "201",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "202",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "203",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
           "id": "17",
           "name": "Panarix",
           "type": null,
@@ -205,12 +428,12 @@
               "type": "sprite"
             },
             {
-              "id": "67",
+              "id": "340",
               "name": "Stage2",
               "type": "sprite"
             },
             {
-              "id": "69",
+              "id": "341",
               "name": "Stage3",
               "type": "sprite"
             }
@@ -222,17 +445,17 @@
           "type": null,
           "children": [
             {
-              "id": "40",
+              "id": "266",
               "name": "Stage1",
               "type": "sprite"
             },
             {
-              "id": "72",
+              "id": "40",
               "name": "Stage2",
               "type": "sprite"
             },
             {
-              "id": "73",
+              "id": "267",
               "name": "Stage3",
               "type": "sprite"
             }
@@ -244,17 +467,17 @@
           "type": null,
           "children": [
             {
-              "id": "49",
+              "id": "268",
               "name": "Stage1",
               "type": "sprite"
             },
             {
-              "id": "74",
+              "id": "49",
               "name": "Stage2",
               "type": "sprite"
             },
             {
-              "id": "75",
+              "id": "269",
               "name": "Stage3",
               "type": "sprite"
             }
@@ -393,28 +616,6 @@
           ]
         },
         {
-          "id": "135",
-          "name": "Chichentuekill",
-          "type": null,
-          "children": [
-            {
-              "id": "136",
-              "name": "Stage1",
-              "type": "sprite"
-            },
-            {
-              "id": "138",
-              "name": "Stage2",
-              "type": "sprite"
-            },
-            {
-              "id": "139",
-              "name": "Stage3",
-              "type": "sprite"
-            }
-          ]
-        },
-        {
           "id": "166",
           "name": "Snootyglooby",
           "type": null,
@@ -501,6 +702,248 @@
               "type": "sprite"
             }
           ]
+        },
+        {
+          "id": "204",
+          "name": "Underdragon",
+          "type": null,
+          "children": [
+            {
+              "id": "205",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "206",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "207",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "211",
+          "name": "COSMOS",
+          "type": null,
+          "children": [
+            {
+              "id": "212",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "213",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "215",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "216",
+          "name": "Chewltan",
+          "type": null,
+          "children": [
+            {
+              "id": "217",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "218",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "219",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "237",
+          "name": "Spectral Turkey",
+          "type": null,
+          "children": [
+            {
+              "id": "238",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "239",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "240",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "220",
+          "name": "Chickentuckill",
+          "type": null,
+          "children": [
+            {
+              "id": "221",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "222",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "223",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "250",
+          "name": "Cyberpug",
+          "type": null,
+          "children": [
+            {
+              "id": "259",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "260",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "261",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "288",
+          "name": "Mike-o-soft",
+          "type": null,
+          "children": [
+            {
+              "id": "289",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "290",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "291",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "296",
+          "name": "Bogeyman",
+          "type": null,
+          "children": [
+            {
+              "id": "297",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "298",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "299",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "300",
+          "name": "Robotator",
+          "type": null,
+          "children": [
+            {
+              "id": "301",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "302",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "303",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "304",
+          "name": "Bobom",
+          "type": null,
+          "children": [
+            {
+              "id": "305",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "306",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "307",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "367",
+          "name": "Rocky Boy",
+          "type": null,
+          "children": [
+            {
+              "id": "368",
+              "name": "Stage1",
+              "type": "sprite"
+            },
+            {
+              "id": "369",
+              "name": "Stage2",
+              "type": "sprite"
+            },
+            {
+              "id": "370",
+              "name": "Stage3",
+              "type": "sprite"
+            }
+          ]
         }
       ]
     },
@@ -513,12 +956,107 @@
           "id": "149",
           "name": "Berserk",
           "type": "sprite"
+        },
+        {
+          "id": "233",
+          "name": "Vampirism",
+          "type": "sprite"
+        },
+        {
+          "id": "270",
+          "name": "Toxic",
+          "type": "sprite"
+        },
+        {
+          "id": "271",
+          "name": "Anti-poison",
+          "type": "sprite"
+        },
+        {
+          "id": "272",
+          "name": "Furtive",
+          "type": "sprite"
+        },
+        {
+          "id": "273",
+          "name": "Accute",
+          "type": "sprite"
+        },
+        {
+          "id": "274",
+          "name": "Survivor",
+          "type": "sprite"
+        },
+        {
+          "id": "279",
+          "name": "Titanium Skin",
+          "type": "sprite"
+        },
+        {
+          "id": "280",
+          "name": "Spiky",
+          "type": "sprite"
+        },
+        {
+          "id": "281",
+          "name": "Double Attack",
+          "type": "sprite"
+        },
+        {
+          "id": "282",
+          "name": "Regeneration",
+          "type": "sprite"
+        },
+        {
+          "id": "283",
+          "name": "Repetition",
+          "type": "sprite"
+        },
+        {
+          "id": "284",
+          "name": "Amphetamines",
+          "type": "sprite"
+        },
+        {
+          "id": "285",
+          "name": "Neutralize",
+          "type": "sprite"
+        },
+        {
+          "id": "286",
+          "name": "Invisibility",
+          "type": "sprite"
+        },
+        {
+          "id": "287",
+          "name": "Parasitism",
+          "type": "sprite"
+        },
+        {
+          "id": "292",
+          "name": "Metamorph",
+          "type": "sprite"
+        },
+        {
+          "id": "293",
+          "name": "Contagious",
+          "type": "sprite"
+        },
+        {
+          "id": "294",
+          "name": "Smoky",
+          "type": "sprite"
+        },
+        {
+          "id": "295",
+          "name": "Trapped",
+          "type": "sprite"
         }
       ]
     },
     {
       "id": "113",
-      "name": "Team Popup",
+      "name": "Monster Info",
       "type": null,
       "children": [
         {
@@ -527,19 +1065,68 @@
           "type": "script"
         },
         {
-          "id": "129",
-          "name": "Prefab",
-          "type": "scene"
-        },
-        {
           "id": "184",
           "name": "Monster Slot Prefab",
           "type": "scene"
         },
         {
+          "id": "179",
+          "name": "Monster Frame",
+          "type": "sprite"
+        },
+        {
+          "id": "235",
+          "name": "Monster Trait Prefab",
+          "type": "scene"
+        },
+        {
+          "id": "234",
+          "name": "Trait Slot",
+          "type": "sprite"
+        },
+        {
           "id": "128",
           "name": "Monster Info Prefab",
           "type": "scene"
+        }
+      ]
+    },
+    {
+      "id": "242",
+      "name": "Exhibitions",
+      "type": null,
+      "children": [
+        {
+          "id": "243",
+          "name": "Data",
+          "type": "script"
+        },
+        {
+          "id": "152",
+          "name": "Portraits",
+          "type": null,
+          "children": [
+            {
+              "id": "153",
+              "name": "Fabrice",
+              "type": "sprite"
+            },
+            {
+              "id": "174",
+              "name": "Sliman",
+              "type": "sprite"
+            },
+            {
+              "id": "175",
+              "name": "Gromlak",
+              "type": "sprite"
+            },
+            {
+              "id": "176",
+              "name": "No Call",
+              "type": "sprite"
+            }
+          ]
         }
       ]
     },
@@ -602,7 +1189,7 @@
         },
         {
           "id": "191",
-          "name": "Asteroid",
+          "name": "Asteroids",
           "type": "sprite"
         },
         {
@@ -623,6 +1210,11 @@
         {
           "id": "195",
           "name": "Cockpit",
+          "type": "sprite"
+        },
+        {
+          "id": "225",
+          "name": "Newspaper",
           "type": "sprite"
         }
       ]
@@ -645,6 +1237,16 @@
         {
           "id": "32",
           "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "312",
+          "name": "Monster Spot",
+          "type": "scene"
+        },
+        {
+          "id": "227",
+          "name": "Spot",
           "type": "sprite"
         },
         {
@@ -671,6 +1273,23 @@
           "id": "45",
           "name": "Telephone",
           "type": "sprite"
+        },
+        {
+          "id": "230",
+          "name": "Monster Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "231",
+              "name": "Scene",
+              "type": "scene"
+            },
+            {
+              "id": "232",
+              "name": "Behavior",
+              "type": "script"
+            }
+          ]
         },
         {
           "id": "97",
@@ -750,33 +1369,28 @@
               "id": "106",
               "name": "Title",
               "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "208",
+          "name": "Cup Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "309",
+              "name": "Scene",
+              "type": "scene"
             },
             {
-              "id": "152",
-              "name": "Portraits",
-              "type": null,
-              "children": [
-                {
-                  "id": "153",
-                  "name": "1",
-                  "type": "sprite"
-                },
-                {
-                  "id": "174",
-                  "name": "2",
-                  "type": "sprite"
-                },
-                {
-                  "id": "175",
-                  "name": "3",
-                  "type": "sprite"
-                },
-                {
-                  "id": "176",
-                  "name": "No Call",
-                  "type": "sprite"
-                }
-              ]
+              "id": "311",
+              "name": "Behavior",
+              "type": "script"
+            },
+            {
+              "id": "198",
+              "name": "Portrait",
+              "type": "sprite"
             }
           ]
         }
@@ -803,26 +1417,139 @@
           "type": "script"
         },
         {
-          "id": "132",
-          "name": "Background",
-          "type": "sprite"
-        },
-        {
-          "id": "146",
-          "name": "Background 2 (1)",
+          "id": "325",
+          "name": "Arenas",
           "type": null,
           "children": [
             {
-              "id": "145",
-              "name": "Background 2",
-              "type": "sprite"
+              "id": "146",
+              "name": "Pit",
+              "type": null,
+              "children": [
+                {
+                  "id": "145",
+                  "name": "Background",
+                  "type": "sprite"
+                },
+                {
+                  "id": "147",
+                  "name": "Overlay",
+                  "type": "sprite"
+                }
+              ]
             },
             {
-              "id": "147",
-              "name": "Overlay",
+              "id": "246",
+              "name": "Fabrice",
+              "type": null,
+              "children": [
+                {
+                  "id": "247",
+                  "name": "Background",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "228",
+              "name": "Sliman",
+              "type": null,
+              "children": [
+                {
+                  "id": "229",
+                  "name": "Background",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "310",
+              "name": "Gromalk",
+              "type": null,
+              "children": [
+                {
+                  "id": "132",
+                  "name": "Background",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "254",
+              "name": "Cup",
+              "type": null,
+              "children": [
+                {
+                  "id": "255",
+                  "name": "Background",
+                  "type": "sprite"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "324",
+          "name": "Team Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "323",
+              "name": "Scene",
+              "type": "scene"
+            },
+            {
+              "id": "226",
+              "name": "Portrait",
               "type": "sprite"
             }
           ]
+        },
+        {
+          "id": "371",
+          "name": "Fight Over Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "372",
+              "name": "Scene",
+              "type": "scene"
+            }
+          ]
+        },
+        {
+          "id": "345",
+          "name": "Win Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "347",
+              "name": "Scene",
+              "type": "scene"
+            }
+          ]
+        },
+        {
+          "id": "348",
+          "name": "Lose Popup",
+          "type": null,
+          "children": [
+            {
+              "id": "349",
+              "name": "Scene",
+              "type": "scene"
+            }
+          ]
+        },
+        {
+          "id": "334",
+          "name": "Health Bar",
+          "type": "sprite"
+        },
+        {
+          "id": "335",
+          "name": "Health Fill",
+          "type": "sprite"
         }
       ]
     },
@@ -902,6 +1629,153 @@
           "id": "116",
           "name": "Transfer Bubble",
           "type": "sprite"
+        },
+        {
+          "id": "129",
+          "name": "Monster Popup",
+          "type": "scene"
+        },
+        {
+          "id": "236",
+          "name": "Fuse Popup",
+          "type": "scene"
+        },
+        {
+          "id": "344",
+          "name": "Fuse Button Icon",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "342",
+      "name": "End Screen",
+      "type": null,
+      "children": [
+        {
+          "id": "343",
+          "name": "Background",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "350",
+      "name": "Audio",
+      "type": null,
+      "children": [
+        {
+          "id": "365",
+          "name": "Tracks",
+          "type": null,
+          "children": [
+            {
+              "id": "351",
+              "name": "Menu",
+              "type": "sound"
+            },
+            {
+              "id": "363",
+              "name": "Ambient",
+              "type": "sound"
+            },
+            {
+              "id": "358",
+              "name": "Fights",
+              "type": null,
+              "children": [
+                {
+                  "id": "352",
+                  "name": "1",
+                  "type": "sound"
+                },
+                {
+                  "id": "353",
+                  "name": "2",
+                  "type": "sound"
+                },
+                {
+                  "id": "359",
+                  "name": "3",
+                  "type": "sound"
+                },
+                {
+                  "id": "360",
+                  "name": "4",
+                  "type": "sound"
+                },
+                {
+                  "id": "361",
+                  "name": "5",
+                  "type": "sound"
+                },
+                {
+                  "id": "362",
+                  "name": "6",
+                  "type": "sound"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "366",
+          "name": "Sounds",
+          "type": null,
+          "children": [
+            {
+              "id": "354",
+              "name": "Jingles",
+              "type": null,
+              "children": [
+                {
+                  "id": "356",
+                  "name": "Defeat",
+                  "type": "sound"
+                },
+                {
+                  "id": "357",
+                  "name": "Victory",
+                  "type": "sound"
+                }
+              ]
+            },
+            {
+              "id": "373",
+              "name": "Fusion",
+              "type": "sound"
+            },
+            {
+              "id": "374",
+              "name": "Punch",
+              "type": "sound"
+            },
+            {
+              "id": "375",
+              "name": "Hanging Phone",
+              "type": "sound"
+            },
+            {
+              "id": "376",
+              "name": "Error",
+              "type": "sound"
+            },
+            {
+              "id": "379",
+              "name": "Lab Teleport",
+              "type": "sound"
+            },
+            {
+              "id": "377",
+              "name": "Btn Validate",
+              "type": "sound"
+            },
+            {
+              "id": "378",
+              "name": "Btn Decline",
+              "type": "sound"
+            }
+          ]
         }
       ]
     }

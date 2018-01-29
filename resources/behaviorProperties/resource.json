@@ -104,6 +104,10 @@
         {
           "name": "position",
           "type": "Sup.Math.Vector2"
+        },
+        {
+          "name": "depth",
+          "type": "number"
         }
       ]
     },
@@ -148,6 +152,48 @@
     },
     "IntroScreenBehavior": {
       "scriptId": "187",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "timer",
+          "type": "number"
+        }
+      ]
+    },
+    "TextBarBehavior": {
+      "scriptId": "214",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "textToDisplay",
+          "type": "string"
+        },
+        {
+          "name": "textProgress",
+          "type": "number"
+        },
+        {
+          "name": "timer",
+          "type": "number"
+        }
+      ]
+    },
+    "MonsterPopupBehavior": {
+      "scriptId": "232",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "PopupBehavior": {
+      "scriptId": "241",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "CupPopupBehavior": {
+      "scriptId": "311",
       "line": 0,
       "parentBehavior": null,
       "properties": []

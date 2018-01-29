@@ -37,7 +37,7 @@
           "type": "SpriteRenderer",
           "config": {
             "formatVersion": 1,
-            "spriteAssetId": "145",
+            "spriteAssetId": null,
             "animationId": null,
             "horizontalFlip": false,
             "verticalFlip": false,
@@ -58,6 +58,24 @@
             "propertyValues": {}
           },
           "id": "1"
+        },
+        {
+          "type": "SpriteRenderer",
+          "config": {
+            "formatVersion": 1,
+            "spriteAssetId": "229",
+            "animationId": null,
+            "horizontalFlip": false,
+            "verticalFlip": false,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "ffffff",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "2"
         }
       ],
       "position": {
@@ -126,11 +144,11 @@
     },
     {
       "id": "1",
-      "name": "Team Roster",
+      "name": "Team Self",
       "children": [],
       "components": [],
       "position": {
-        "x": -4,
+        "x": -14,
         "y": -9,
         "z": 1
       },
@@ -155,7 +173,7 @@
       "children": [],
       "components": [],
       "position": {
-        "x": 4,
+        "x": 14,
         "y": -9,
         "z": 1
       },

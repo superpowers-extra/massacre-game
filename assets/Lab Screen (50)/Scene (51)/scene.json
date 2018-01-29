@@ -203,6 +203,14 @@
                 "shaderAssetId": null
               },
               "id": "0"
+            },
+            {
+              "type": "Behavior",
+              "config": {
+                "behaviorName": "IdleMonsterBehavior",
+                "propertyValues": {}
+              },
+              "id": "1"
             }
           ],
           "position": {
@@ -348,6 +356,14 @@
             "shaderAssetId": null
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "IdleMonsterBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
         }
       ],
       "position": {

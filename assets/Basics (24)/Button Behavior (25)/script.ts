@@ -108,6 +108,12 @@ class ButtonBehavior extends Sup.Behavior {
   }
   
   activate() {
+    if (this.actor.spriteRenderer.getSprite().path.indexOf("Negative") !== -1) {
+      AudioManager.playSound("Btn Decline");
+    } else {
+      AudioManager.playSound("Btn Validate");
+    }
+    
     this.actor.spriteRenderer.setAnimation("Hovered");
     if (this.onClick != null) this.onClick();
     else Sup.log("Button with no click action setup");
